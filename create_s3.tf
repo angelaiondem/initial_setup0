@@ -11,3 +11,10 @@ resource "aws_s3_bucket" "devops_project" {
   } 
 }
 
+# Enable Bucket versioning
+resource "aws_s3_bucket_versioning" "versioning_example" {
+  bucket = aws_s3_bucket.devops_project.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
